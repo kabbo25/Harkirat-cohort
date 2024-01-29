@@ -21,14 +21,15 @@ function KidneyMiddleware(req, res, next) {
     next();
   }
 }
+app.use(KidneyMiddleware);
 
-app.get("/health-checkup", UserMiddleware, KidneyMiddleware, (req, res) => {
+app.get("/health-checkup", UserMiddleware, (req, res) => {
   res.json({
     msg: "your health is healthy",
   });
 });
 
-app.get("/kidney-checkup", KidneyMiddleware, (req, res) => {
+app.get("/kidney-checkup", (req, res) => {
   res.json({
     msg: "Your kidney is healthy",
   });
