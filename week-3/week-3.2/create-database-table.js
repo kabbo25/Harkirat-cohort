@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://kabbophy:PLy9s6K2TQ978Wbu@cluster0.ufikomy.mongodb.net/animals",
-);
+mongoose.connect();
 
 const Cat = mongoose.model("Cat", { name: String });
 
