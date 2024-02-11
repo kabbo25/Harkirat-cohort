@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Basic Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      async function populatediv(){
+        const a = document.getElementById("firstnumber").value;
+        const b = document.getElementById("secondnumber").value;
+
+        try {
+          const response = await axios.get(`http://localhost:3000/sum?a=${a}&b=${b}`);
+          document.getElementById("finalsum").innerText = `Sum: ${response.data}`;
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input id="firstnumber" type="text" placeholder="first number"><br><br>
+    <input id="secondnumber" type="text" placeholder="second number"><br><br>
+    <button onclick="populatediv()">Calculate sum</button><br><br>
+    <div id="finalsum"></div>
+  </body>
+</html>
