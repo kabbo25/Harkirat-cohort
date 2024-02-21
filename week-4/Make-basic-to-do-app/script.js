@@ -1,4 +1,8 @@
 let globalId = 1;
+function markAsDone(taskId){
+    const parent=document.getElementById(taskId);
+    parent.children[2].innerHTML="Done";
+}
 
 function calltodo() {
     const title = document.getElementById("title").value;
@@ -12,6 +16,7 @@ function calltodo() {
     child_title.innerHTML = title;
     child_description.innerHTML = description;
     childButton.innerHTML = "Mark as done";
+    childButton.setAttribute("onclick",`markAsDone(${globalId})`)
     // Append title, description, button, and line breaks to childDiv
     childDiv.appendChild(child_title);
     childDiv.appendChild(child_description);
