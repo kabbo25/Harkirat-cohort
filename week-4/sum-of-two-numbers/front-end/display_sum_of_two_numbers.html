@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Basic Page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-      async function populatediv(){
-        const a = document.getElementById("firstnumber").value;
-        const b = document.getElementById("secondnumber").value;
+<head>
+  <title>Basic Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    async function populatediv(){
+      const a = document.getElementById("firstnumber").value;
+      const b = document.getElementById("secondnumber").value;
 
-        try {
-          const response = await axios.get(`http://localhost:3000/sum?a=${a}&b=${b}`);
-          document.getElementById("finalsum").innerText = `Sum: ${response.data}`;
-        } catch (error) {
-          console.error('Error:', error);
-        }
+      try {
+        const response = await axios.get(`http://localhost:4000/sum?a=${a}&b=${b}`);
+        document.getElementById("finalsum").innerText = `Sum: ${response.data}`;
+      } catch (error) {
+        console.error('Error:', error);
       }
-    </script>
-  </head>
-  <body>
-    <input id="firstnumber" type="text" placeholder="first number"><br><br>
-    <input id="secondnumber" type="text" placeholder="second number"><br><br>
-    <button onclick="populatediv()">Calculate sum</button><br><br>
-    <div id="finalsum"></div>
-  </body>
+    }
+  </script>
+</head>
+<body>
+<!-- Labels associated with input elements -->
+<label for="firstnumber">First Number:</label>
+<input id="firstnumber" type="text" placeholder="Enter first number"><br><br>
+<label for="secondnumber">Second Number:</label>
+<input id="secondnumber" type="text" placeholder="Enter second number"><br><br>
+
+<!-- Button to trigger calculation -->
+<button onclick="populatediv()">Calculate Sum</button><br><br>
+
+<!-- Display the result here -->
+<div id="finalsum"></div>
+</body>
 </html>

@@ -3,9 +3,9 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.get("/sum", (req, res) => {
-  a = parseInt(req.query.a);
-  b = parseInt(req.query.b);
-  const c = a + b;
-  res.send(c.toString());
+    let a = parseInt(req.query.a);
+    let b = parseInt(req.query.b);
+    const c = a + b;
+    res.send(c.toString());
 });
-app.listen(3000);
+app.listen(4000);
