@@ -1,7 +1,14 @@
 let globalId = 1;
 function markAsDone(taskId){
-    const parent=document.getElementById(taskId);
-    parent.children[2].innerHTML="Done";
+    const parent = document.getElementById(taskId);
+    parent.children[2].innerHTML = "Done";
+
+    // Ask user for confirmation
+    const confirmation = confirm("Do you want to delete this todo?");
+    if (confirmation) {
+        // Remove the task from the container
+        document.getElementById("container").removeChild(parent);
+    }
 }
 
 function calltodo() {
