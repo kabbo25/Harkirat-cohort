@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buttonRender</title>
+</head>
+<body>
+    <div id="buttonParent"></div>
+    <script>
+        let state ={
+            count: 0
+        }
+        function onButtonPress(){
+            state.count++;
+            buttonComponentRerender();
+        }
+        function buttonComponentRerender(){
+            document.getElementById("buttonParent").innerHTML="";
+            const curComponent=buttonComponent(state.count);
+            document.getElementById("buttonParent").appendChild(curComponent)
+        }
+        function buttonComponent(curCount){
+            const button=document.createElement("button")
+            button.innerHTML=`count = ${curCount}`
+            button.setAttribute("onclick",`onButtonPress()`)
+            return button
+        }
+        buttonComponentRerender()
+    </script>
+</body>
+</html>
